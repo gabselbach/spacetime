@@ -25,9 +25,8 @@ export async function authRoutes(app: FastifyInstance) {
         },
       },
     )
-
     const { access_token } = accessTokenResponse.data
-
+    console.log('a', access_token)
     const userResponse = await axios.get('https://api.github.com/user', {
       headers: {
         Authorization: `Bearer ${access_token}`,
